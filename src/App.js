@@ -49,20 +49,24 @@ class App extends Component{
       padding: '8px',
       cursor: "pointer", 
     }
-    return (
-      <div className="App">
-        <h1>Hello World</h1>
-        <button style={style} onClick={this.togglePersonHandler} >Change Name</button>
-        {
-          this.state.showPersons ? <div>
+    let person = null;
+    if (this.state.showPersons){
+      person = (
+        <div>
           <Person name={this.state.persons[0].name} age={this.state.persons[0].age}/>
           <Person name={this.state.persons[1].name} age={this.state.persons[1].age}
             click={this.switchNameHandler.bind(this,'Neymar')}>
             I love football
           </Person>
           <Person name={this.state.persons[2].name} age={this.state.persons[2].age} changed={this.nameChangeHandler}/>
-          </div>:null
-        }
+        </div>
+      )
+    }
+    return (
+      <div className="App">
+        <h1>Hello World</h1>
+        <button style={style} onClick={this.togglePersonHandler} >Toggle Person</button>
+        {person}
       </div>
     );
   }
