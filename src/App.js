@@ -7,9 +7,9 @@ import Person from './Person/Person'
 class App extends Component{
   state = {
     persons :[
-      {name:"Max",age:28},
-      {name:"Stephen",age:29},
-      {name:"Manu",age:27},
+      {id : 1,name:"Max",age:28},
+      {id : 2,name:"Stephen",age:29},
+      {id : 3,name:"Manu",age:27},
     ],
     showPersons : false
   }
@@ -49,7 +49,8 @@ class App extends Component{
 
   render(){
     const style={
-      backgroundColor : "white",
+      backgroundColor : "green",
+      color : "white", 
       font: "inherit",
       border: '1px solid blue',
       padding: '8px',
@@ -60,10 +61,12 @@ class App extends Component{
       person = (
         <div>
           {this.state.persons.map((person,index) => {
-             return <Person name={person.name} age={person.age} click={()=>this.deletePersonHandler(index)} />
+             return <Person name={person.name} age={person.age} key={person.id} 
+             click={()=>this.deletePersonHandler(index)} />
           })}
          </div>
       )
+      style.backgroundColor = "red";
     }
     return (
       <div className="App">
