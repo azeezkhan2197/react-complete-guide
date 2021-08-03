@@ -9,3 +9,8 @@
 .bold{
   font-weight: bold;
 }
+
+.App button{
+  color: black;
+  background-color: red;
+}
