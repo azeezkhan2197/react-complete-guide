@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import cssClass from './App.module.css';
 import Person from './Person/Person';
 import Radium from 'radium';
 
@@ -85,15 +85,15 @@ class App extends Component{
 
     const classes=[];
     if (this.state.persons.length <=2){
-      classes.push('red');
+      classes.push(cssClass.red);
     }
     if (this.state.persons.length<=1){
-      classes.push('bold');
+      classes.push(cssClass.bold);
     }
 
 
     return (
-      <div className="App">
+      <div className={cssClass.App}>
         <h1 className ={classes.join(' ')}>Hello World</h1>
         <button style={style} onClick={this.togglePersonHandler} >Toggle Person</button>
         {person}
