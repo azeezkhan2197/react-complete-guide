@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import cssClass from './App.module.css';
-import Person from '../components/Person/Person';
-
-
-
+import Persons from '../components/Persons/Persons';
+import Cockpit from '../components/Cockpit/Cockpit';
 
 class App extends Component{
   state = {
@@ -55,17 +53,10 @@ class App extends Component{
     let person = null;
     let btnClass=''
     if (this.state.showPersons){
-      person = (
-        <div>
-          {this.state.persons.map((person,index) => {
-             return <Person name={person.name} age={person.age} key={person.id} 
-             click={()=>this.deletePersonHandler(index)}
-             changed={(event)=> this.nameChangeHandler (event,person.id)}
-             />
-          })}
-         </div>
-      )
-      btnClass=cssClass.button;
+      person = <Persons
+          persons={this.state.persons}
+          clicked ={this.deletePersonHandler}
+          changed= {this.nameChangeHandler} />
     }
 
     const classes=[];
@@ -79,8 +70,9 @@ class App extends Component{
 
     return (
       <div className={cssClass.App}>
-        <h1 className ={classes.join(' ')}>Hello World</h1>
-        <button className={btnClass}  onClick={this.togglePersonHandler} >Toggle Person</button>
+        <Cockpit persons={this.state.persons}
+          showPersons={this.state.showPersons}
+          clicked={this.togglePersonHandler}/>
         {person}
       </div>
     );
