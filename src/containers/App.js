@@ -51,23 +51,12 @@ class App extends Component{
 
   render(){
     let person = null;
-    let btnClass=''
     if (this.state.showPersons){
       person = <Persons
           persons={this.state.persons}
           clicked ={this.deletePersonHandler}
           changed= {this.nameChangeHandler} />
     }
-
-    const classes=[];
-    if (this.state.persons.length <=2){
-      classes.push(cssClass.red);
-    }
-    if (this.state.persons.length<=1){
-      classes.push(cssClass.bold);
-    }
-
-
     return (
       <div className={cssClass.App}>
         <Cockpit persons={this.state.persons}
@@ -77,6 +66,6 @@ class App extends Component{
       </div>
     );
   }
-
 }
+
 export default App;

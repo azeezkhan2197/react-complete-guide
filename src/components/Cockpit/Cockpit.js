@@ -2,7 +2,6 @@ import React from 'react';
 import cssClass from './Cockpit.module.css';
 
 const cockpit = (props)=>{
-
     const classes=[];
     let btnClass='';
     if (props.persons.length <=2){
